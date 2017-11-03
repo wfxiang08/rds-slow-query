@@ -29,10 +29,7 @@ func main() {
 	}
 
 	if hour == -1 {
-		hour = int64(time.Now().Hour()) - 1
-		if hour < 0 {
-			hour = 23
-		}
+		hour = int64(time.Now().Hour())
 	} else if hour < 0 || hour > 23 {
 		log.Printf("Invalid hour: %d", hour)
 		return
