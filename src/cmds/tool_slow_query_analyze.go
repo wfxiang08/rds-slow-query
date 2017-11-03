@@ -51,8 +51,8 @@ func main() {
 		for _, db := range dbs {
 			content, err := slow_query.DownloadHourlyLogFile(db, logFile, conf)
 			if err != nil {
-				log.ErrorErrorf(err, "DownloadToPath failed")
-				return
+				// 下载失败，就直接跳过
+				continue
 			}
 			slowQueryLogs = append(slowQueryLogs, content)
 		}
