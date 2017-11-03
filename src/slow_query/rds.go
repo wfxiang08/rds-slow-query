@@ -36,7 +36,7 @@ func DownloadHourlyLogFile(db, logfile string, conf *DatabaseConfig) (string, er
 		})
 
 	if err != nil {
-		log.ErrorErrorf(err, "DownloadDBLogFilePortionPages failed")
+		log.ErrorErrorf(err, "DownloadDBLogFilePortionPages failed：%s %s", db, logfile)
 		return "", err
 	} else {
 		log.Printf("Download %s %s succeed", db, logfile)
