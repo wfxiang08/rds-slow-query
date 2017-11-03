@@ -76,13 +76,14 @@ func main() {
 
 		summaries := slow_query.ParseSummaries(out.String(), true)
 
+		utc8 := (hour + 8) % 24
 		if idx == 0 {
 			content := slow_query.FormatMail(summaries, 100, *verbose)
-			content = fmt.Sprintf(`<span style="color:red;">慢日志文件Online：%s</span><br/>`, logFile) + content
+			content = fmt.Sprintf(`<span style="color:red;">慢日志文件Online：%s, 北京时间: %d点</span><br/>`, logFile, utc8) + content
 			emailContentBlocks = append(emailContentBlocks, content)
 		} else {
 			content := slow_query.FormatMail(summaries, 10, *verbose)
-			content = fmt.Sprintf(`<span style="color:red;">慢日志文件Offline：%s</span><br/>`, logFile) + content
+			content = fmt.Sprintf(`<span style="color:red;">慢日志文件Offline：%s, 北京时间: %d点</span><br/>`, logFile, utc8) + content
 			emailContentBlocks = append(emailContentBlocks, content)
 		}
 
