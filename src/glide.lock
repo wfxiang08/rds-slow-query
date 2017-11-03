@@ -1,0 +1,44 @@
+hash: 424dd6f5aea309e41e73616c1d71f1969148b955a52925a5f359d856d75a5317
+updated: 2017-11-03T12:04:14.421571029+08:00
+imports:
+- name: github.com/aws/aws-sdk-go
+  version: 80dcc100bd75b8742a5ffc6cfc2200efbe5a59d3
+  subpackages:
+  - aws
+  - aws/awserr
+  - aws/awsutil
+  - aws/client
+  - aws/client/metadata
+  - aws/corehandlers
+  - aws/credentials
+  - aws/credentials/ec2rolecreds
+  - aws/credentials/endpointcreds
+  - aws/credentials/stscreds
+  - aws/defaults
+  - aws/ec2metadata
+  - aws/endpoints
+  - aws/request
+  - aws/session
+  - aws/signer/v4
+  - internal/shareddefaults
+  - private/protocol
+  - private/protocol/query
+  - private/protocol/query/queryutil
+  - private/protocol/rest
+  - private/protocol/xml/xmlutil
+  - service/rds
+  - service/ses
+  - service/sts
+- name: github.com/BurntSushi/toml
+  version: b26d9c308763d68093482582cea63d69be07a0f0
+- name: github.com/go-ini/ini
+  version: 3d73f4b845efdf9989fffd4b4e562727744a34ba
+- name: github.com/jmespath/go-jmespath
+  version: bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d
+- name: github.com/wfxiang08/cyutils
+  version: a1e100462898931f081803bb601b083ce9cee60b
+  subpackages:
+  - utils/errors
+  - utils/rolling_log
+  - utils/trace
+testImports: []

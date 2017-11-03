@@ -1,0 +1,14 @@
+package: .
+import:
+- package: github.com/BurntSushi/toml
+- package: github.com/aws/aws-sdk-go
+  subpackages:
+  - aws
+  - aws/credentials
+  - aws/session
+  - service/rds
+  - service/ses
+- package: github.com/wfxiang08/cyutils
+  subpackages:
+  - utils/errors
+  - utils/rolling_log

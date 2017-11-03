@@ -1,0 +1,6 @@
+/src/vendor
+.idea
+/src/monitor_*
+/src/tool_*
+/src/task_*
+/src/conf/dbs.toml

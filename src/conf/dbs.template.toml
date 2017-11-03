@@ -1,0 +1,14 @@
+aws_key = "xxxxx"
+aws_secret = "xxx"
+aws_region = "india-west-2"
+email_sender="sender@test.com"
+email_receivers=[
+    "test@test.com"
+]
+dbs_online = [
+		"db-identifier",
+    ]
+
+dbs_offline = [
+		"db-identifier-offline",
+    ]

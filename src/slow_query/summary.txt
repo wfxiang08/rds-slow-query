@@ -1,0 +1,31 @@
+Count: 2  Time=4.83s (9s)  Lock=0.00s (0s)  Rows=0.5 (1), worker[worker]@[10.20.128.87]
+  SELECT count(*) as count FROM ugc_opration_log WHERE N=N
+
+Count: 1  Time=2.57s (2s)  Lock=0.02s (0s)  Rows=20.0 (20), worker[worker]@[10.20.2.70]
+  select recommend_recording.recording_id, recommend_recording.update_time, recommend_recording.stage_name,
+  recommend_recording.song_name,recommend_recording.user_id, recommend_recording.created_by,
+  sum(times_click) as times_click,
+  sum(times_show) as times_show,
+  sum(times_play) as times_play,
+  sum(length_play) as length_play,
+  if(sum(times_show)>N , sum(times_click)/sum(times_show) , N) as ctr,
+  if(sum(times_play)>N , sum(length_play)/sum(times_play) , N) as avg_time  from recommend_recording  left join recommend_track_day on recommend_track_day.recording_id=recommend_recording.recording_id  where is_deleted=N and `update_time` >= N and `update_time` < N  group by recommend_track_day.recording_id  order by update_time desc  limit N, N
+
+Count: 1  Time=0.11s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), worker[worker]@[10.20.2.233]
+  INSERT INTO `facebook_profile` (`user_id`, `name`, `age_range_min`, `age_range_max`, `gender`, `locale`, `timezone`, `email`, `created_on`, `updated_on`) VALUES (N, 'S', N, N, N, 'S', N, NULL, N, N)
+
+Count: 1  Time=0.11s (0s)  Lock=0.00s (0s)  Rows=122.0 (122), worker[worker]@[10.20.2.19]
+  SELECT * FROM `comment` WHERE `id` IN (N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N)
+
+Count: 1  Time=0.11s (0s)  Lock=0.00s (0s)  Rows=209.0 (209), worker[worker]@[10.20.2.71]
+  SELECT * FROM `comment` WHERE `id` IN (N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N, N)
+
+Count: 1  Time=0.11s (0s)  Lock=0.00s (0s)  Rows=1.0 (1), worker[worker]@[10.20.2.193]
+  SELECT SUM(plays) FROM `recording_popularity` WHERE (`ds`='S') AND (`recording_id` IN ('S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'))
+
+Count: 1  Time=0.11s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), worker[worker]@[10.20.2.19]
+  INSERT INTO `chorus_map` (`start_user_id`, `join_user_id`, `song_id`, `start_recording_id`, `join_recording_id`, `created_on`, `chorus_rule_id`) VALUES ('S', NULL, 'S', 'S', NULL, 'S', N)
+
+Count: 5  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=0.0 (0), 0users@0hosts
+  
+
