@@ -16,6 +16,8 @@ var (
 	verbose   = flag.Bool("verbose", false, "verbose")
 	hourParam = flag.Int64("hour", -1, "hour in utc0")
 	conf      = flag.String("conf", "", "database conf file")
+	keepLog   = flag.Bool("keeplog", false, "keep slow query local") // 是否保留中间的slow query
+	skipEmail = flag.Bool("noemail", false, "skip sending email")
 )
 
 func main() {
@@ -66,8 +68,10 @@ func main() {
 		cmd.Stdout = &out
 		err = cmd.Run()
 
-		// 删除数据
-		os.Remove(filePath)
+		// (如果不保留数据)删除数据
+		if !*keepLog {
+			os.Remove(filePath)
+		}
 
 		if err != nil {
 			log.ErrorError(err, "error while run command")
@@ -89,6 +93,8 @@ func main() {
 
 	}
 
-	slow_query.SendEmail("MySQL慢查询统计", strings.Join(emailContentBlocks, "<hr style='height: 5px;background-color: #03A9F4;'/>"),
-		conf.EmailSender, conf.EmailReceivers, conf)
+	if !*skipEmail {
+		slow_query.SendEmail("MySQL慢查询统计", strings.Join(emailContentBlocks, "<hr style='height: 5px;background-color: #03A9F4;'/>"),
+			conf.EmailSender, conf.EmailReceivers, conf)
+	}
 }
